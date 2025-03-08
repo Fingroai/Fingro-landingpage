@@ -292,57 +292,70 @@ document.addEventListener('DOMContentLoaded', function() {
             return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         };
         
-        const showError = (input, message) => {
-            const formGroup = input.closest('.form-group');
-            const errorDiv = formGroup.querySelector('.error-message') || document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.textContent = message;
-            
-            if (!formGroup.querySelector('.error-message')) {
-                formGroup.appendChild(errorDiv);
-            }
-            
-            input.classList.add('error');
-        };
-        
-        const removeError = (input) => {
-            const formGroup = input.closest('.form-group');
-            const errorDiv = formGroup.querySelector('.error-message');
-            
-            if (errorDiv) {
-                errorDiv.remove();
-            }
-            
-            input.classList.remove('error');
-        };
-        
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            let hasErrors = false;
-            const inputs = contactForm.querySelectorAll('input, select, textarea');
+            // Validación básica
+            let isValid = true;
+            const nameInput = contactForm.querySelector('#name');
+            const emailInput = contactForm.querySelector('#email');
+            const cooperativeInput = contactForm.querySelector('#cooperative');
+            const planInput = contactForm.querySelector('#plan');
+            const messageInput = contactForm.querySelector('#message');
             
-            inputs.forEach(input => {
-                removeError(input);
-                
-                if (input.required && !input.value.trim()) {
-                    showError(input, 'Este campo es requerido');
-                    hasErrors = true;
-                } else if (input.type === 'email' && !validateEmail(input.value)) {
-                    showError(input, 'Por favor ingresa un email válido');
-                    hasErrors = true;
-                }
-            });
+            if (!nameInput.value.trim()) {
+                isValid = false;
+                nameInput.classList.add('error');
+            } else {
+                nameInput.classList.remove('error');
+            }
             
-            if (!hasErrors) {
+            if (!emailInput.value.trim() || !validateEmail(emailInput.value)) {
+                isValid = false;
+                emailInput.classList.add('error');
+            } else {
+                emailInput.classList.remove('error');
+            }
+            
+            if (!cooperativeInput.value.trim()) {
+                isValid = false;
+                cooperativeInput.classList.add('error');
+            } else {
+                cooperativeInput.classList.remove('error');
+            }
+            
+            if (!planInput.value) {
+                isValid = false;
+                planInput.classList.add('error');
+            } else {
+                planInput.classList.remove('error');
+            }
+            
+            if (!messageInput.value.trim()) {
+                isValid = false;
+                messageInput.classList.add('error');
+            } else {
+                messageInput.classList.remove('error');
+            }
+            
+            if (isValid) {
                 const submitButton = contactForm.querySelector('button[type="submit"]');
                 submitButton.disabled = true;
                 submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 
                 try {
+                    // Crear objeto con los datos del formulario
+                    const formData = new FormData();
+                    formData.append('name', nameInput.value);
+                    formData.append('email', emailInput.value);
+                    formData.append('cooperative', cooperativeInput.value);
+                    formData.append('plan', planInput.value);
+                    formData.append('message', messageInput.value);
+                    formData.append('form_type', 'solicitud_acceso');
+                    formData.append('_subject', 'Nueva solicitud de acceso a prueba piloto - Fingro');
+                    
                     // Enviar formulario usando fetch API a Formspree
-                    const formData = new FormData(contactForm);
-                    const response = await fetch(contactForm.action, {
+                    const response = await fetch('https://formspree.io/f/movearpy', {
                         method: 'POST',
                         body: formData,
                         headers: {
@@ -366,15 +379,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     submitButton.innerHTML = 'Enviar Solicitud';
                     alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente.');
                 }
+            } else {
+                alert('Por favor completa todos los campos correctamente.');
             }
         });
         
-        // Real-time validation
+        // Eliminar clase de error al escribir
         contactForm.querySelectorAll('input, select, textarea').forEach(input => {
             input.addEventListener('input', function() {
-                if (this.value.trim()) {
-                    removeError(this);
-                }
+                this.classList.remove('error');
             });
         });
     }
