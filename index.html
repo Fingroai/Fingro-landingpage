@@ -329,7 +329,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2>Solicita Acceso a la Prueba Piloto</h2>
-            <form id="contact-form" class="contact-form">
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/movearpy" method="POST">
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Nombre completo" required>
                 </div>
@@ -350,6 +350,7 @@
                 <div class="form-group">
                     <textarea id="message" name="message" placeholder="¿Qué te gustaría lograr con Fingro?" required></textarea>
                 </div>
+                <input type="hidden" name="_subject" value="Nueva solicitud de acceso a prueba piloto - Fingro">
                 <button type="submit" class="btn-primary">Enviar Solicitud</button>
             </form>
         </div>
@@ -412,7 +413,7 @@
                 <h3>Agenda una Demo de Fingro</h3>
                 <p>Completa el formulario y un especialista se pondrá en contacto contigo para agendar una demostración personalizada.</p>
             </div>
-            <form id="demo-form" class="demo-form">
+            <form id="demo-form" class="demo-form" action="https://formspree.io/f/movearpy" method="POST">
                 <div class="form-group">
                     <input type="text" id="demo-name" name="name" placeholder="Nombre completo" required>
                 </div>
@@ -436,6 +437,7 @@
                 <div class="form-group">
                     <input type="date" id="demo-date" name="date" placeholder="Fecha preferida" required>
                 </div>
+                <input type="hidden" name="_subject" value="Nueva solicitud de demo - Fingro">
                 <button type="submit" class="btn-primary">Solicitar Demo</button>
             </form>
         </div>
