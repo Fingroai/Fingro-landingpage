@@ -2,19 +2,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu');
     const navLinks = document.querySelector('.nav-links');
+    const header = document.querySelector('.sticky-header');
     
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
             navLinks.classList.toggle('show');
             const icon = mobileMenuBtn.querySelector('i');
             if (icon) {
-                if (icon.classList.contains('fa-bars')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-xmark');
-                } else {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-xmark');
-                }
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-xmark');
             }
         });
     }
@@ -53,12 +49,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Adjust scroll position based on header height
-                const headerHeight = document.querySelector('header').offsetHeight;
+                const headerHeight = header.offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
                 
                 window.scrollTo({
-                    top: targetPosition - headerHeight - 20, // Extra 20px for padding
+                    top: targetPosition - headerHeight - 20,
                     behavior: 'smooth'
                 });
             }
@@ -86,87 +81,298 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Testimonial slider
     const testimonials = document.querySelectorAll('.testimonial');
-    const dots = document.querySelectorAll('.dot');
+    const controls = document.querySelectorAll('.testimonial-controls .control');
     let currentSlide = 0;
     
     function showSlide(index) {
         testimonials.forEach(testimonial => {
-            testimonial.style.transform = `translateX(-${index * 100}%)`;
+            testimonial.classList.remove('active');
         });
         
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === index);
+        controls.forEach(control => {
+            control.classList.remove('active');
         });
+        
+        testimonials[index].classList.add('active');
+        controls[index].classList.add('active');
     }
     
     // Initial slide
     showSlide(0);
     
-    // Click on dots to navigate
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
+    // Click on controls to navigate
+    controls.forEach((control, index) => {
+        control.addEventListener('click', () => {
             currentSlide = index;
             showSlide(currentSlide);
         });
     });
     
     // Auto rotate slides
-    setInterval(() => {
+    let slideInterval = setInterval(() => {
         currentSlide = (currentSlide + 1) % testimonials.length;
         showSlide(currentSlide);
     }, 5000);
     
-    // Form submission
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const crop = document.getElementById('crop').value;
-            
-            // Here you would typically send this data to your backend
-            // For now, we'll just show a success message
-            
-            contactForm.innerHTML = `
-                <div class="success-message">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <h3>¡Gracias ${name}!</h3>
-                    <p>Hemos recibido tu solicitud. Un asesor se pondrá en contacto contigo a través de WhatsApp en las próximas 2 horas.</p>
-                </div>
-            `;
-            
-            // You could also redirect to WhatsApp here
-            // window.location.href = `https://wa.me/52XXXXXXXXXX?text=Hola,%20soy%20${name}%20y%20estoy%20interesado%20en%20financiamiento%20para%20mi%20cultivo%20de%20${crop}`;
+    // Pause rotation on hover
+    const testimonialContainer = document.querySelector('.testimonial-container');
+    if (testimonialContainer) {
+        testimonialContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        testimonialContainer.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % testimonials.length;
+                showSlide(currentSlide);
+            }, 5000);
         });
     }
     
-    // Header scroll effect
-    const header = document.querySelector('header');
+    // Modal functionality
+    const modalOverlay = document.getElementById('demo-modal');
+    const modalClose = document.querySelector('.modal-close');
+    const demoButtons = document.querySelectorAll('.open-demo-modal');
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
+    // Open modal
+    demoButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent body scrolling
+        });
+    });
+    
+    // Close modal
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close modal when clicking outside
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
     
-    // Add CSS for elements that require JavaScript
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Demo form submission
+    const demoForm = document.getElementById('demo-form');
+    
+    if (demoForm) {
+        demoForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = demoForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            
+            try {
+                // Here you would typically send this data to your backend
+                // Simulating API call with timeout
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                demoForm.innerHTML = `
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>¡Demo Agendada!</h3>
+                        <p>Gracias por tu interés en Fingro. Un especialista se pondrá en contacto contigo en las próximas 24 horas para confirmar la fecha y hora de tu demo personalizada.</p>
+                    </div>
+                `;
+                
+                // Close modal after 5 seconds
+                setTimeout(() => {
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Reset form after closing
+                    setTimeout(() => {
+                        demoForm.innerHTML = `
+                            <div class="form-group">
+                                <input type="text" id="demo-name" name="name" placeholder="Nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="demo-email" name="email" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="demo-cooperative" name="cooperative" placeholder="Nombre de la cooperativa" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="demo-phone" name="phone" placeholder="Teléfono / WhatsApp" required>
+                            </div>
+                            <div class="form-group">
+                                <select id="demo-interest" name="interest" required>
+                                    <option value="">¿Qué te interesa más?</option>
+                                    <option value="chatbot">Fingro Chatbot</option>
+                                    <option value="score">Fingro Score</option>
+                                    <option value="both">Ambos</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" id="demo-date" name="date" placeholder="Fecha preferida" required>
+                            </div>
+                            <button type="submit" class="btn-primary">Solicitar Demo</button>
+                        `;
+                    }, 500);
+                }, 5000);
+            } catch (error) {
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Solicitar Demo';
+                alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente.');
+            }
+        });
+    }
+    
+    // Animate elements on scroll
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.feature, .step, .benefit-card, .score-feature, .pricing-card');
+        
+        elements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementBottom = element.getBoundingClientRect().bottom;
+            
+            if (elementTop < window.innerHeight && elementBottom > 0) {
+                element.classList.add('animate');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Initial check
+    
+    // Header scroll effect
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            // Scrolling down
+            header.classList.add('header-hidden');
+        } else {
+            // Scrolling up
+            header.classList.remove('header-hidden');
+        }
+        
+        if (currentScroll > 100) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Form submission with validation
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        const validateEmail = (email) => {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        };
+        
+        const showError = (input, message) => {
+            const formGroup = input.closest('.form-group');
+            const errorDiv = formGroup.querySelector('.error-message') || document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            
+            if (!formGroup.querySelector('.error-message')) {
+                formGroup.appendChild(errorDiv);
+            }
+            
+            input.classList.add('error');
+        };
+        
+        const removeError = (input) => {
+            const formGroup = input.closest('.form-group');
+            const errorDiv = formGroup.querySelector('.error-message');
+            
+            if (errorDiv) {
+                errorDiv.remove();
+            }
+            
+            input.classList.remove('error');
+        };
+        
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            let hasErrors = false;
+            const inputs = contactForm.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                removeError(input);
+                
+                if (input.required && !input.value.trim()) {
+                    showError(input, 'Este campo es requerido');
+                    hasErrors = true;
+                } else if (input.type === 'email' && !validateEmail(input.value)) {
+                    showError(input, 'Por favor ingresa un email válido');
+                    hasErrors = true;
+                }
+            });
+            
+            if (!hasErrors) {
+                const submitButton = contactForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                
+                try {
+                    // Here you would typically send this data to your backend
+                    // Simulating API call with timeout
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    contactForm.innerHTML = `
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>¡Gracias por tu interés!</h3>
+                            <p>Hemos recibido tu solicitud. Nuestro equipo se pondrá en contacto contigo pronto para comenzar con la prueba piloto.</p>
+                        </div>
+                    `;
+                } catch (error) {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Enviar Solicitud';
+                    alert('Hubo un error al enviar el formulario. Por favor intenta nuevamente.');
+                }
+            }
+        });
+        
+        // Real-time validation
+        contactForm.querySelectorAll('input, select, textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    removeError(this);
+                }
+            });
+        });
+    }
+    
+    // Add CSS for dynamic elements
     const style = document.createElement('style');
     style.textContent = `
         .nav-links.show {
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 70px;
+            top: 100%;
             left: 0;
             right: 0;
-            background-color: white;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
             z-index: 1000;
         }
         
@@ -174,9 +380,19 @@ document.addEventListener('DOMContentLoaded', function() {
             margin: 10px 0;
         }
         
+        .header-scrolled {
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-hidden {
+            transform: translateY(-100%);
+        }
+        
         .success-message {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
+            animation: fadeIn 0.5s ease;
         }
         
         .success-message i {
@@ -185,9 +401,64 @@ document.addEventListener('DOMContentLoaded', function() {
             margin-bottom: 20px;
         }
         
-        header.scrolled {
-            padding: 10px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 5px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        input.error,
+        select.error,
+        textarea.error {
+            border-color: #dc3545;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Animation classes */
+        .feature,
+        .step,
+        .benefit-card,
+        .score-feature,
+        .pricing-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .feature.animate,
+        .step.animate,
+        .benefit-card.animate,
+        .score-feature.animate,
+        .pricing-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Stagger animations */
+        .feature:nth-child(1) { transition-delay: 0.1s; }
+        .feature:nth-child(2) { transition-delay: 0.2s; }
+        .feature:nth-child(3) { transition-delay: 0.3s; }
+        .feature:nth-child(4) { transition-delay: 0.4s; }
+        
+        .step:nth-child(1) { transition-delay: 0.1s; }
+        .step:nth-child(2) { transition-delay: 0.2s; }
+        .step:nth-child(3) { transition-delay: 0.3s; }
+        
+        .benefit-card:nth-child(1) { transition-delay: 0.1s; }
+        .benefit-card:nth-child(2) { transition-delay: 0.2s; }
+        .benefit-card:nth-child(3) { transition-delay: 0.3s; }
+        .benefit-card:nth-child(4) { transition-delay: 0.4s; }
+        .benefit-card:nth-child(5) { transition-delay: 0.5s; }
+
+        /* Apply active class to first testimonial control */
+        .testimonial-controls .control:first-child {
+            background: var(--blue-neon);
+            transform: scale(1.2);
         }
     `;
     document.head.appendChild(style);

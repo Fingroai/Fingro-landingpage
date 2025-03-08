@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fingro | Financiamiento Agrícola Inteligente</title>
-    <meta name="description" content="Fingro usa IA para ofrecer financiamiento ágil, sin papeleo y adaptado a tu cultivo. Solicita tu crédito agrícola ahora.">
+    <title>Fingro | Digitaliza tu Cooperativa con IA</title>
+    <meta name="description" content="Fingro transforma el proceso de crédito de tu cooperativa con IA. Accede a la prueba exclusiva de Fingro Score y digitaliza tu proceso con Fingro Chatbot.">
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="Fingro, IA, cooperativas, crédito digital, chatbot, fintech, evaluación de riesgo, inteligencia artificial">
+    <meta name="author" content="Fingro">
+    <meta property="og:title" content="Fingro | Digitaliza tu Cooperativa con IA">
+    <meta property="og:description" content="Fingro transforma el proceso de crédito de tu cooperativa con IA. Accede a la prueba exclusiva de Fingro Score.">
+    <meta property="og:image" content="Fingro Logo (2).svg">
+    <meta property="og:url" content="https://fingro.tech">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fingro | Digitaliza tu Cooperativa con IA">
+    <meta name="twitter:description" content="Fingro transforma el proceso de crédito de tu cooperativa con IA. Accede a la prueba exclusiva de Fingro Score.">
+    <meta name="twitter:image" content="Fingro Logo (2).svg">
+    <!-- Favicon -->
+    <link rel="icon" href="Fingro Logo (2).svg" type="image/svg+xml">
+    <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,18 +28,25 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header class="sticky-header">
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="#" class="logo-text">FINGRO</a>
+                    <div class="logo-glow"></div>
+                    <a href="#">
+                        <img src="Fingro Logo (2).svg" alt="Fingro Logo" class="logo-img">
+                    </a>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#beneficios">Beneficios</a></li>
                     <li><a href="#como-funciona">Cómo Funciona</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#fingro-score">Fingro Score</a></li>
+                    <li><a href="#planes">Planes</a></li>
                     <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#faq">Preguntas Frecuentes</a></li>
                 </ul>
+                <div class="cta-nav">
+                    <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
+                </div>
                 <div class="mobile-menu">
                     <i class="fa-solid fa-bars"></i>
                 </div>
@@ -36,12 +58,57 @@
     <section id="hero" class="hero-section">
         <div class="container">
             <div class="hero-content">
-                <h1>El financiamiento agrícola inteligente ha llegado</h1>
-                <p>Usamos IA para ofrecer financiamiento ágil, sin papeleo y adaptado a tu cultivo.</p>
-                <a href="#contact" class="cta-button">Solicita tu crédito ahora</a>
+                <h1>Digitaliza tu Cooperativa y Accede a la Prueba Exclusiva de Fingro Score</h1>
+                <p class="hero-subtitle">Fingro transforma tu proceso de crédito en minutos, no en días.</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-robot"></i>
+                        <span>Fingro Chatbot digitaliza la solicitud y aprobación</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-brain"></i>
+                        <span>Fingro Score usa IA para mejorar evaluación de riesgo</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>Reduce tiempos de aprobación en un 50%</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Aumenta la colocación sin aumentar riesgo</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
+                    <a href="#como-funciona" class="btn-secondary">Conocer Más</a>
+                </div>
             </div>
-            <div class="hero-image">
-                <img src="img/hero-image.jpg" alt="Campo agrícola con tecnología">
+        </div>
+    </section>
+
+    <!-- Cómo Funciona Section -->
+    <section id="como-funciona" class="process-section">
+        <div class="container">
+            <h2>¿Cómo funciona Fingro?</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Digitaliza el proceso de solicitud de crédito</h3>
+                    <p>Fingro Chatbot guía a los clientes en WhatsApp y recopila información clave sin papeleo.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Evalúa el riesgo con IA</h3>
+                    <p>Fingro Score analiza la capacidad de pago con datos alternativos, optimizando la aprobación de créditos.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Aprueba créditos más rápido</h3>
+                    <p>Tu equipo recibe solicitudes con el scoring de IA y puede aprobar en minutos.</p>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
             </div>
         </div>
     </section>
@@ -49,251 +116,330 @@
     <!-- Beneficios Section -->
     <section id="beneficios" class="benefits-section">
         <div class="container">
-            <h2>Beneficios de financiarte con Fingro</h2>
+            <h2>Beneficios para Cooperativas</h2>
             <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fa-solid fa-chart-line"></i>
+                <div class="benefits-top-row">
+                    <div class="benefit-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Reduce tiempos de aprobación en un 50%</h3>
+                        <p>Acelera el proceso de crédito y mejora la experiencia de tus clientes con tiempos de respuesta inmediatos.</p>
                     </div>
-                    <h3>Financiamiento rápido</h3>
-                    <p>Respuesta en minutos gracias a nuestra tecnología de inteligencia artificial.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fa-solid fa-seedling"></i>
+                    <div class="benefit-card">
+                        <i class="fas fa-robot"></i>
+                        <h3>Automatiza la evaluación crediticia con IA</h3>
+                        <p>Implementa decisiones basadas en datos y algoritmos avanzados que mejoran la precisión de la evaluación.</p>
                     </div>
-                    <h3>Pensado para agricultores</h3>
-                    <p>Evaluación basada en datos reales de tu cultivo y producción agrícola.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fa-solid fa-robot"></i>
+                    <div class="benefit-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3>Elimina burocracia y reduce costos operativos</h3>
+                        <p>Minimiza el papeleo, ahorra recursos y simplifica los procesos internos de tu cooperativa.</p>
                     </div>
-                    <h3>Sin papeleo</h3>
-                    <p>Proceso 100% digital que puedes completar desde tu celular en cualquier momento.</p>
                 </div>
+                <div class="benefits-bottom-row">
+                    <div class="benefit-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Accede a tecnología avanzada con implementación rápida</h3>
+                        <p>Integra soluciones de última generación con un proceso de implementación ágil y sin complicaciones.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Asegura la sostenibilidad financiera con decisiones más precisas</h3>
+                        <p>Mejora la gestión de riesgos y optimiza tu cartera con análisis predictivos y detección temprana de alertas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- Cómo Funciona Section -->
-    <section id="como-funciona" class="how-it-works-section">
+    <!-- Fingro Score Section -->
+    <section id="fingro-score" class="score-section">
         <div class="container">
-            <h2>Cómo funciona</h2>
-            <div class="steps-container">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <i class="fa-brands fa-whatsapp"></i>
+            <div class="score-header">
+                <h2>Prueba Exclusiva: Fingro Score</h2>
+                <p>Accede a la fase de prueba piloto de Fingro Score y optimiza tu análisis de riesgo</p>
+            </div>
+            <div class="score-illustration">
+                <div class="score-badge">
+                    <div class="score-circle">
+                        <span class="score-number">AI</span>
                     </div>
-                    <h3>Completa el formulario</h3>
-                    <p>Responde algunas preguntas rápidas en WhatsApp sobre tu cultivo y necesidades.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <i class="fa-solid fa-microchip"></i>
+                    <div class="score-waves">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-                    <h3>Evaluación con IA</h3>
-                    <p>Nuestro algoritmo evalúa tu solicitud usando inteligencia artificial en segundos.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <i class="fa-solid fa-money-bill-transfer"></i>
-                    </div>
-                    <h3>Recibe tu crédito</h3>
-                    <p>El dinero se deposita directamente en tu cuenta en tiempo récord.</p>
+            </div>
+            <div class="score-features">
+                <div class="score-feature">
+                    <h3>¿Qué es Fingro Score?</h3>
+                    <p>Un modelo de inteligencia artificial que evalúa la capacidad de pago y el riesgo de los solicitantes sin depender de historial bancario tradicional.</p>
                 </div>
+                <div class="score-feature">
+                    <h3>¿Cómo mejora la toma de decisiones?</h3>
+                    <ul>
+                        <li>Analiza datos alternativos como comportamiento financiero, ubicación y historial de pagos</li>
+                        <li>Reduce la tasa de mora con una predicción más precisa del riesgo</li>
+                        <li>Agiliza el proceso de análisis para tomar decisiones en minutos</li>
+                    </ul>
+                </div>
+                <div class="score-feature">
+                    <h3>¿Quiénes pueden acceder?</h3>
+                    <ul>
+                        <li>Cooperativas seleccionadas en la fase de prueba piloto</li>
+                        <li>Planes Pro y Enterprise tienen acceso prioritario</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonios Section -->
+    <!-- Pricing Section -->
+    <section id="planes" class="pricing-section">
+        <div class="container">
+            <h2>Planes diseñados para cooperativas de todos los tamaños</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Básico</h3>
+                    <div class="price">Q1,500<span>/mes</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Fingro Chatbot</li>
+                        <li><i class="fas fa-times"></i> Acceso a Fingro Score</li>
+                        <li><i class="fas fa-times"></i> Soporte Prioritario</li>
+                        <li>Comisión: 2.5% por crédito</li>
+                        <li>Implementación: Gratis</li>
+                        <li class="limit">Hasta 100 solicitudes mensuales</li>
+                    </ul>
+                    <a href="#" class="btn-secondary open-demo-modal">Empezar Ahora</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="card-tag">Recomendado</div>
+                    <h3>Pro</h3>
+                    <div class="price">Q3,500<span>/mes</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Fingro Chatbot</li>
+                        <li><i class="fas fa-check"></i> Acceso a Fingro Score (Prueba Piloto)</li>
+                        <li><i class="fas fa-check"></i> Soporte Prioritario</li>
+                        <li>Comisión: 0.75% por crédito</li>
+                        <li>Implementación: Q5,000 único</li>
+                        <li class="limit">Hasta 500 solicitudes mensuales</li>
+                    </ul>
+                    <a href="#" class="btn-primary open-demo-modal">Solicitar Acceso</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Q7,500<span>/mes</span></div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Fingro Chatbot</li>
+                        <li><i class="fas fa-check"></i> Fingro Score (Versión Completa)</li>
+                        <li><i class="fas fa-check"></i> Soporte Prioritario</li>
+                        <li>Comisión: 0.5% por crédito</li>
+                        <li>Implementación: Q10,000 único</li>
+                        <li class="limit">Sin límite de solicitudes</li>
+                    </ul>
+                    <a href="#" class="btn-secondary open-demo-modal">Contactar Ventas</a>
+                </div>
+            </div>
+            <p class="pricing-note">Oferta exclusiva: Las cooperativas que se unan ahora obtienen acceso anticipado a la Prueba Piloto de Fingro Score</p>
+            <div class="section-cta">
+                <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
     <section id="testimonios" class="testimonials-section">
         <div class="container">
-            <h2>Lo que dicen nuestros clientes</h2>
+            <h2>Únete a las cooperativas que ya están digitalizando sus créditos con Fingro</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-text">Solicitudes Procesadas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50%</div>
+                    <div class="stat-text">Reducción en Tiempo</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">Digital</div>
+                </div>
+            </div>
             <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-image">
-                        <img src="img/testimonial-1.jpg" alt="Juan Pérez">
+                <div class="testimonial-container">
+                    <div class="testimonial active">
+                        <p>"Antes tardábamos días en procesar solicitudes, ahora lo hacemos en minutos con Fingro."</p>
+                        <div class="author">
+                            <div class="author-avatar">MG</div>
+                            <div class="author-info">
+                                <strong>María García</strong>
+                                <span>Gerente de Crédito</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="testimonial-content">
-                        <p class="quote">"Con Fingro obtuve financiamiento para mi cultivo de maíz en solo 2 días. El proceso fue increíblemente sencillo."</p>
-                        <p class="author">Juan Pérez, Productor de Maíz</p>
+                    <div class="testimonial">
+                        <p>"La implementación de Fingro fue increíblemente sencilla. En menos de una semana estábamos operando completamente digital."</p>
+                        <div class="author">
+                            <div class="author-avatar">CR</div>
+                            <div class="author-info">
+                                <strong>Carlos Ramírez</strong>
+                                <span>Director de Operaciones</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>"Fingro Score ha mejorado nuestra tasa de mora. Las evaluaciones de riesgo son mucho más precisas ahora."</p>
+                        <div class="author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-info">
+                                <strong>Ana Martínez</strong>
+                                <span>Gerente General</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-image">
-                        <img src="img/testimonial-2.jpg" alt="María González">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="quote">"Lo que más me impresionó es que entendían perfectamente las necesidades de mi cultivo y ajustaron el financiamiento a mi ciclo de producción."</p>
-                        <p class="author">María González, Productora de Aguacate</p>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-image">
-                        <img src="img/testimonial-3.jpg" alt="Carlos Rodríguez">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="quote">"Después de años lidiando con bancos tradicionales, Fingro fue como un soplo de aire fresco. Rápido, sin complicaciones y con tasas justas."</p>
-                        <p class="author">Carlos Rodríguez, Productor de Café</p>
-                    </div>
+                <div class="testimonial-controls">
+                    <button class="control active" data-index="0"></button>
+                    <button class="control" data-index="1"></button>
+                    <button class="control" data-index="2"></button>
                 </div>
             </div>
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Cómo se evalúa mi crédito?</h3>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Utilizamos inteligencia artificial para analizar datos de tu cultivo, historial agrícola y otros factores relevantes. A diferencia de los bancos tradicionales, nuestra evaluación se enfoca en el potencial productivo, no solo en tu historial crediticio.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Qué tasas de interés manejan?</h3>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Nuestras tasas son competitivas y personalizadas según el perfil de cada productor, tipo de cultivo y plazo. Te ofrecemos transparencia total desde el inicio sobre todos los costos asociados sin sorpresas posteriores.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Cuánto tiempo tarda el desembolso?</h3>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Una vez aprobada tu solicitud, el desembolso ocurre entre 24 y 48 horas hábiles. Algunos clientes reciben los fondos el mismo día de la aprobación.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>¿Qué necesito para aplicar?</h3>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Principalmente necesitarás: identificación oficial, información sobre tu cultivo (superficie, tipo, producción estimada), y una cuenta bancaria a tu nombre. Todo el proceso se realiza digitalmente sin necesidad de documentos físicos.</p>
-                    </div>
-                </div>
+            <div class="section-cta">
+                <a href="#" class="btn-primary open-demo-modal">Agendar una Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta-section">
+    <!-- Final CTA Section -->
+    <section id="final-cta" class="final-cta-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Empieza hoy. Obtén financiamiento en minutos.</h2>
-                <p>Miles de agricultores ya confían en Fingro para hacer crecer sus cultivos.</p>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Nombre completo" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="WhatsApp (10 dígitos)" required>
-                    </div>
-                    <div class="form-group">
-                        <select id="crop" name="crop" required>
-                            <option value="" disabled selected>Tipo de cultivo</option>
-                            <option value="maiz">Maíz</option>
-                            <option value="frijol">Frijol</option>
-                            <option value="trigo">Trigo</option>
-                            <option value="aguacate">Aguacate</option>
-                            <option value="cafe">Café</option>
-                            <option value="otro">Otro</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="cta-button">Solicitar ahora</button>
-                </form>
-            </div>
-            <div class="social-proof">
-                <div class="stats">
-                    <div class="stat">
-                        <h3>5,000+</h3>
-                        <p>Agricultores financiados</p>
-                    </div>
-                    <div class="stat">
-                        <h3>$150M</h3>
-                        <p>En créditos otorgados</p>
-                    </div>
-                    <div class="stat">
-                        <h3>48h</h3>
-                        <p>Tiempo promedio de desembolso</p>
-                    </div>
+            <h2>El futuro del crédito en cooperativas es digital. Fingro lo hace fácil.</h2>
+            <p>Sé una de las primeras cooperativas en probar Fingro Score y revolucionar tu proceso de crédito.</p>
+            <a href="#" class="btn-primary open-demo-modal">Accede a la Prueba Piloto Ahora</a>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Solicita Acceso a la Prueba Piloto</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Nombre completo" required>
                 </div>
-            </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="cooperative" name="cooperative" placeholder="Nombre de la cooperativa" required>
+                </div>
+                <div class="form-group">
+                    <select id="plan" name="plan" required>
+                        <option value="">Selecciona un plan</option>
+                        <option value="basic">Básico</option>
+                        <option value="pro">Pro</option>
+                        <option value="enterprise">Enterprise</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="¿Qué te gustaría lograr con Fingro?" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Solicitud</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="#" class="footer-logo-text">FINGRO</a>
-                    <p>Revolucionando el financiamiento agrícola con tecnología e inteligencia artificial.</p>
+                    <div class="logo-glow footer-glow"></div>
+                    <img src="Fingro Logo (2).svg" alt="Fingro Logo" class="logo-img">
                 </div>
                 <div class="footer-links">
-                    <h4>Enlaces</h4>
-                    <ul>
-                        <li><a href="#beneficios">Beneficios</a></li>
-                        <li><a href="#como-funciona">Cómo Funciona</a></li>
-                        <li><a href="#testimonios">Testimonios</a></li>
-                        <li><a href="#faq">Preguntas Frecuentes</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/52XXXXXXXXXX">WhatsApp</a></li>
-                        <li><i class="fa-regular fa-envelope"></i> <a href="mailto:contacto@fingro.mx">fingro.tech@gmail.com</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Síguenos</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <div class="footer-column">
+                        <h4>Productos</h4>
+                        <ul>
+                            <li><a href="#como-funciona">Fingro Chatbot</a></li>
+                            <li><a href="#fingro-score">Fingro Score</a></li>
+                            <li><a href="#planes">Planes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Empresa</h4>
+                        <ul>
+                            <li><a href="#hero">Sobre Nosotros</a></li>
+                            <li><a href="#contact">Contacto</a></li>
+                            <li><a href="#testimonios">Testimonios</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#privacy">Privacidad</a></li>
+                            <li><a href="#terms">Términos</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Fingro. Todos los derechos reservados.</p>
-                <div class="legal-links">
-                    <a href="#">Términos y Condiciones</a>
-                    <a href="#">Política de Privacidad</a>
-                </div>
+                <p>&copy; 2024 Fingro. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Sticky CTA -->
-    <div class="sticky-cta">
-        <a href="#contact" class="sticky-button">
-            <i class="fa-solid fa-dollar-sign"></i> Solicitar crédito
-        </a>
-        <a href="https://wa.me/52XXXXXXXXXX" class="whatsapp-button">
-            <i class="fa-brands fa-whatsapp"></i>
-        </a>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/YOUR_WHATSAPP_NUMBER" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Demo Modal -->
+    <div class="modal-overlay" id="demo-modal">
+        <div class="modal-container">
+            <div class="modal-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="modal-header">
+                <h3>Agenda una Demo de Fingro</h3>
+                <p>Completa el formulario y un especialista se pondrá en contacto contigo para agendar una demostración personalizada.</p>
+            </div>
+            <form id="demo-form" class="demo-form">
+                <div class="form-group">
+                    <input type="text" id="demo-name" name="name" placeholder="Nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="demo-email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="demo-cooperative" name="cooperative" placeholder="Nombre de la cooperativa" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="demo-phone" name="phone" placeholder="Teléfono / WhatsApp" required>
+                </div>
+                <div class="form-group">
+                    <select id="demo-interest" name="interest" required>
+                        <option value="">¿Qué te interesa más?</option>
+                        <option value="chatbot">Fingro Chatbot</option>
+                        <option value="score">Fingro Score</option>
+                        <option value="both">Ambos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="date" id="demo-date" name="date" placeholder="Fecha preferida" required>
+                </div>
+                <button type="submit" class="btn-primary">Solicitar Demo</button>
+            </form>
+        </div>
     </div>
 
+    <!-- Scripts -->
     <script src="js/main.js"></script>
 </body>
 </html>
