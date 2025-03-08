@@ -179,53 +179,65 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             
             try {
-                // Here you would typically send this data to your backend
-                // Simulating API call with timeout
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                demoForm.innerHTML = `
-                    <div class="success-message">
-                        <i class="fas fa-check-circle"></i>
-                        <h3>¡Demo Agendada!</h3>
-                        <p>Gracias por tu interés en Fingro. Un especialista se pondrá en contacto contigo en las próximas 24 horas para confirmar la fecha y hora de tu demo personalizada.</p>
-                    </div>
-                `;
-                
-                // Close modal after 5 seconds
-                setTimeout(() => {
-                    modalOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
+                // Enviar formulario usando fetch API a Formspree
+                const formData = new FormData(demoForm);
+                const response = await fetch(demoForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    demoForm.innerHTML = `
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>¡Demo Agendada!</h3>
+                            <p>Gracias por tu interés en Fingro. Un especialista se pondrá en contacto contigo en las próximas 24 horas para confirmar la fecha y hora de tu demo personalizada.</p>
+                        </div>
+                    `;
                     
-                    // Reset form after closing
+                    // Close modal after 5 seconds
                     setTimeout(() => {
-                        demoForm.innerHTML = `
-                            <div class="form-group">
-                                <input type="text" id="demo-name" name="name" placeholder="Nombre completo" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="demo-email" name="email" placeholder="Correo electrónico" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="demo-cooperative" name="cooperative" placeholder="Nombre de la cooperativa" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="demo-phone" name="phone" placeholder="Teléfono / WhatsApp" required>
-                            </div>
-                            <div class="form-group">
-                                <select id="demo-interest" name="interest" required>
-                                    <option value="">¿Qué te interesa más?</option>
-                                    <option value="chatbot">Fingro Chatbot</option>
-                                    <option value="score">Fingro Score</option>
-                                    <option value="both">Ambos</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <input type="date" id="demo-date" name="date" placeholder="Fecha preferida" required>
-                            </div>
-                            <button type="submit" class="btn-primary">Solicitar Demo</button>
-                        `;
-                    }, 500);
-                }, 5000);
+                        modalOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                        
+                        // Reset form after closing
+                        setTimeout(() => {
+                            demoForm.reset();
+                            demoForm.innerHTML = `
+                                <div class="form-group">
+                                    <input type="text" id="demo-name" name="name" placeholder="Nombre completo" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="demo-email" name="email" placeholder="Correo electrónico" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="demo-cooperative" name="cooperative" placeholder="Nombre de la cooperativa" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" id="demo-phone" name="phone" placeholder="Teléfono / WhatsApp" required>
+                                </div>
+                                <div class="form-group">
+                                    <select id="demo-interest" name="interest" required>
+                                        <option value="">¿Qué te interesa más?</option>
+                                        <option value="chatbot">Fingro Chatbot</option>
+                                        <option value="score">Fingro Score</option>
+                                        <option value="both">Ambos</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" id="demo-date" name="date" placeholder="Fecha preferida" required>
+                                </div>
+                                <input type="hidden" name="_subject" value="Nueva solicitud de demo - Fingro">
+                                <button type="submit" class="btn-primary">Solicitar Demo</button>
+                            `;
+                        }, 500);
+                    }, 5000);
+                } else {
+                    throw new Error('Error al enviar formulario');
+                }
             } catch (error) {
                 submitButton.disabled = false;
                 submitButton.innerHTML = 'Solicitar Demo';
@@ -330,17 +342,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
                 
                 try {
-                    // Here you would typically send this data to your backend
-                    // Simulating API call with timeout
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    
-                    contactForm.innerHTML = `
-                        <div class="success-message">
-                            <i class="fas fa-check-circle"></i>
-                            <h3>¡Gracias por tu interés!</h3>
-                            <p>Hemos recibido tu solicitud. Nuestro equipo se pondrá en contacto contigo pronto para comenzar con la prueba piloto.</p>
-                        </div>
-                    `;
+                    // Enviar formulario usando fetch API a Formspree
+                    const formData = new FormData(contactForm);
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        contactForm.innerHTML = `
+                            <div class="success-message">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>¡Gracias por tu interés!</h3>
+                                <p>Hemos recibido tu solicitud. Nuestro equipo se pondrá en contacto contigo pronto para comenzar con la prueba piloto.</p>
+                            </div>
+                        `;
+                    } else {
+                        throw new Error('Error al enviar formulario');
+                    }
                 } catch (error) {
                     submitButton.disabled = false;
                     submitButton.innerHTML = 'Enviar Solicitud';
