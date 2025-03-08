@@ -227,10 +227,8 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <option value="both">Ambos</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <input type="date" id="demo-date" name="date" placeholder="Fecha preferida" required>
-                                </div>
                                 <input type="hidden" name="_subject" value="Nueva solicitud de demo - Fingro">
+                                <input type="hidden" name="form_type" value="solicitud_demo">
                                 <button type="submit" class="btn-primary">Solicitar Demo</button>
                             `;
                         }, 500);
