@@ -261,6 +261,40 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Initial check
     
+    // Enhanced mobile experience for benefit cards
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    const isMobile = window.innerWidth <= 768;
+    
+    // Add touch effect for benefit cards on mobile
+    if (isMobile) {
+        benefitCards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                card.classList.add('touch-active');
+            });
+            
+            card.addEventListener('touchend', () => {
+                setTimeout(() => {
+                    card.classList.remove('touch-active');
+                }, 300);
+            });
+        });
+    }
+    
+    // Progressive loading of benefit cards on mobile
+    function progressiveLoad() {
+        if (isMobile) {
+            benefitCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 * (index + 1));
+            });
+        }
+    }
+    
+    // Run progressive loading after page load
+    window.addEventListener('load', progressiveLoad);
+    
     // Header scroll effect
     let lastScroll = 0;
     

@@ -409,6 +409,7 @@ nav {
     padding: var(--section-padding);
     background: linear-gradient(135deg, rgba(0, 174, 239, 0.07), rgba(57, 255, 20, 0.07));
     position: relative;
+    overflow: hidden;
 }
 
 .benefits-section::before {
@@ -460,6 +461,9 @@ nav {
     border-bottom: 4px solid transparent;
     z-index: 1;
     border: 1px solid rgba(255, 255, 255, 0.05);
+    transform: translateY(0);
+    opacity: 0.4;
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
 }
 
 .benefit-card::before {
@@ -518,6 +522,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .benefit-card h3::after {
@@ -1410,6 +1415,17 @@ nav {
         width: 190px;
         height: 190px;
     }
+
+    .benefits-grid {
+        gap: 60px;
+    }
+    
+    .benefit-card i {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+        top: -40px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1475,22 +1491,32 @@ nav {
         width: 70px;
         height: 70px;
         font-size: 28px;
-        margin-top: -35px;
+        top: -35px;
+        box-shadow: 0 5px 15px rgba(0, 174, 239, 0.5);
     }
     
     .benefit-card h3 {
         min-height: auto;
         margin-bottom: 20px;
+        font-size: 1.2rem;
+        text-align: center;
+        padding-bottom: 12px;
+    }
+
+    .benefit-card p {
+        font-size: 0.95rem;
     }
 
     .benefits-top-row,
     .benefits-bottom-row {
         grid-template-columns: 1fr;
-        gap: 90px;
+        gap: 70px;
+        max-width: 450px;
+        margin: 0 auto;
     }
     
-    .score-feature {
-        padding: 30px;
+    .benefits-grid {
+        gap: 50px;
     }
 }
 
@@ -1552,6 +1578,40 @@ nav {
         width: 80px;
         height: 80px;
     }
+
+    .benefit-card {
+        padding: 20px;
+        padding-top: 45px;
+        max-width: 100%;
+    }
+    
+    .benefit-card i {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        top: -30px;
+    }
+    
+    .benefit-card h3 {
+        font-size: 1.1rem;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .benefit-card h3::after {
+        width: 30px;
+        height: 2px;
+    }
+    
+    .benefits-top-row,
+    .benefits-bottom-row {
+        gap: 60px;
+    }
+    
+    .benefits-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
 }
 
 @media (max-width: 375px) {
@@ -1569,5 +1629,98 @@ nav {
 
     .testimonial-container {
         height: 400px;
+    }
+}
+
+/* Stagger animation delay for benefit cards on mobile */
+@media (max-width: 480px) {
+    .benefits-section .container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+    
+    .benefit-card {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 15px;
+        padding-top: 40px;
+    }
+    
+    .benefit-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .benefit-card h3 {
+        font-size: 1rem;
+    }
+    
+    .benefit-card i {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        top: -25px;
+    }
+}
+
+/* Mobile touch effects */
+.touch-active {
+    transform: scale(0.98) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    border-bottom: 4px solid var(--blue-neon) !important;
+    transition: all 0.2s ease !important;
+}
+
+.touch-active i {
+    transform: translateX(-50%) scale(1.1) !important;
+    box-shadow: 0 5px 20px rgba(0, 174, 239, 0.6) !important;
+}
+
+.benefit-card {
+    /* Add initial transform and opacity for progressive load animation */
+    opacity: 0.4;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .benefit-card {
+        max-width: 450px;
+        margin: 0 auto;
+        padding-top: calc(var(--card-padding) + 35px);
+        transform: translateY(20px); /* Initial position for animation */
+        opacity: 0.4; /* Initial opacity for animation */
+    }
+    
+    .benefit-card i {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+        top: -35px;
+        box-shadow: 0 5px 15px rgba(0, 174, 239, 0.5);
+    }
+    
+    .benefit-card h3 {
+        min-height: auto;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        text-align: center;
+        padding-bottom: 12px;
+    }
+    
+    .benefit-card p {
+        font-size: 0.95rem;
+    }
+
+    .benefits-top-row,
+    .benefits-bottom-row {
+        grid-template-columns: 1fr;
+        gap: 70px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .benefits-grid {
+        gap: 50px;
     }
 }
