@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://fingroai.com/</loc>
+    <lastmod>2024-03-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://fingroai.com/Fingro Logo (2).svg</image:loc>
+      <image:caption>Logo de Fingro</image:caption>
+      <image:title>Fingro - Digitaliza tu Cooperativa con IA</image:title>
+    </image:image>
+  </url>
+</urlset> 
