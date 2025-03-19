@@ -407,7 +407,7 @@ nav {
 /* Benefits Section */
 .benefits-section {
     padding: var(--section-padding);
-    background: linear-gradient(135deg, rgba(0, 174, 239, 0.07), rgba(57, 255, 20, 0.07));
+    background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(57, 255, 20, 0.1));
     position: relative;
     overflow: hidden;
 }
@@ -460,9 +460,9 @@ nav {
     overflow: visible;
     border-bottom: 4px solid transparent;
     z-index: 1;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transform: translateY(0);
-    opacity: 0.4;
+    opacity: 1;
     transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
 }
 
@@ -473,7 +473,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 174, 239, 0.1), rgba(57, 255, 20, 0.1));
+    background: linear-gradient(135deg, rgba(0, 174, 239, 0.15), rgba(57, 255, 20, 0.15));
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -500,7 +500,7 @@ nav {
     justify-content: center;
     border-radius: 50%;
     background: var(--gradient-primary);
-    box-shadow: 0 5px 15px rgba(0, 174, 239, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 174, 239, 0.6);
     position: absolute;
     top: -45px;
     left: 50%;
