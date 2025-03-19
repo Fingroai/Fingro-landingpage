@@ -422,6 +422,7 @@ nav {
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="3" cy="3" r="1.5" fill="%2300AEEF" opacity="0.1"/></svg>');
     background-size: 50px 50px;
     pointer-events: none;
+    z-index: 1;
 }
 
 .benefits-grid {
@@ -449,7 +450,7 @@ nav {
     padding-top: calc(var(--card-padding) + 45px);
     background: var(--card-bg);
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     transition: var(--transition);
     text-align: center;
     display: flex;
@@ -459,11 +460,12 @@ nav {
     position: relative;
     overflow: visible;
     border-bottom: 4px solid transparent;
-    z-index: 1;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transform: translateY(0);
     opacity: 1;
     transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-bottom 0.3s ease;
+    background-color: var(--bg-primary);
 }
 
 .benefit-card::before {
@@ -481,7 +483,7 @@ nav {
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-lg);
     border-bottom: 4px solid var(--blue-neon);
 }
 
