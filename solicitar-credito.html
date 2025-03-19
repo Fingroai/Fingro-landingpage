@@ -10,13 +10,38 @@
 
       gtag('config', 'AW-16940336740');
     </script>
+    <!-- Event snippet for Submit lead form conversion -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16940336740/kuGzCKH7-awaEOSM5I0_',
+          'value': 1.0,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+      return false;
+    }
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitar Crédito | Fingro - Obtén tu crédito con la mejor tasa</title>
     <meta name="description" content="Solicita tu crédito con Fingro y obtén la mejor tasa del mercado sin trámites complicados.">
     <link rel="icon" href="Fingro Logo (2).svg" type="image/svg+xml">
     <script>
-        window.location.href = "index.html#final-cta";
+        // Ejecutar la conversión y luego redirigir
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16940336740/kuGzCKH7-awaEOSM5I0_',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': function() {
+                window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSfGTrPjmcHdCx9SuOoOPfcZprB9Som4wLtbfYPLU0t09ACkWg/viewform?usp=dialog";
+            }
+        });
     </script>
 </head>
 <body>
