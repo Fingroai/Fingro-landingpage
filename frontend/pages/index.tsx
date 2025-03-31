@@ -225,10 +225,13 @@ export default function Home() {
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary-dark tracking-tight leading-tight">
                 <span className="block">Encuentra tu crédito ideal</span>
-                <span className="block text-primary-green">en menos de 48 horas</span>
+                <span className="block text-primary-green">en menos de 48h</span>
               </h1>
-              <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-secondary-text">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-secondary-text hidden sm:block">
                 Fingro te conecta con las mejores ofertas de crédito personalizadas según tu perfil. Sin comisiones ocultas.
+              </p>
+              <p className="mt-3 text-sm text-secondary-text sm:hidden">
+                Mejores ofertas de crédito personalizadas. Sin comisiones.
               </p>
               
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -245,45 +248,44 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="mt-6 sm:mt-8 grid grid-cols-3 gap-2 sm:gap-4">
+              <div className="mt-5 sm:mt-8 grid grid-cols-3 gap-1 sm:gap-4">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
-                  <span className="text-primary-green mb-1 sm:mb-0 sm:mr-2"><FiShield size={18} /></span>
-                  <span className="text-xs sm:text-sm">Datos 100% seguros</span>
+                  <span className="text-primary-green mb-1 sm:mb-0 sm:mr-2"><FiShield size={16} /></span>
+                  <span className="text-[10px] sm:text-sm">Datos seguros</span>
                 </div>
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
-                  <span className="text-primary-green mb-1 sm:mb-0 sm:mr-2"><FiClock size={18} /></span>
-                  <span className="text-xs sm:text-sm">Respuesta rápida</span>
+                  <span className="text-primary-green mb-1 sm:mb-0 sm:mr-2"><FiClock size={16} /></span>
+                  <span className="text-[10px] sm:text-sm">Rápido</span>
                 </div>
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left">
-                  <span className="text-primary-green mb-1 sm:mb-0 sm:mr-2"><FiDollarSign size={18} /></span>
-                  <span className="text-xs sm:text-sm">Sin comisiones</span>
+                  <span className="text-primary-green mb-1 sm:mb-0 sm:mr-2"><FiDollarSign size={16} /></span>
+                  <span className="text-[10px] sm:text-sm">Gratis</span>
                 </div>
               </div>
             </div>
             
             {/* Versión móvil de la tarjeta de crédito */}
-            <div className="relative block md:hidden mt-6">
-              <div className="bg-white p-4 rounded-lg shadow-xl mx-auto max-w-xs">
-                <div className="bg-primary-dark p-3 rounded-lg text-white mb-3">
-                  <h3 className="font-bold text-base mb-1">Crédito Aprobado</h3>
-                  <p className="text-xs opacity-80">Oferta personalizada</p>
+            <div className="relative block md:hidden mt-8">
+              <div className="bg-white p-3 rounded-lg shadow-xl mx-auto max-w-xs">
+                <div className="bg-primary-dark p-2 rounded-lg text-white mb-2">
+                  <h3 className="font-bold text-sm">Crédito Aprobado</h3>
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-4 py-1">
                   <div>
-                    <p className="text-xs text-secondary-text">Monto aprobado</p>
-                    <p className="text-lg font-bold text-primary-dark">Q 50,000</p>
+                    <p className="text-[10px] text-secondary-text">Monto</p>
+                    <p className="text-base font-bold text-primary-dark">Q 50,000</p>
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-text">Tasa de interés</p>
-                    <p className="text-lg font-bold text-primary-green">12.5%</p>
+                    <p className="text-[10px] text-secondary-text">Tasa</p>
+                    <p className="text-base font-bold text-primary-green">12.5%</p>
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-text">Plazo</p>
-                    <p className="text-base font-bold text-primary-dark">60 meses</p>
+                    <p className="text-[10px] text-secondary-text">Plazo</p>
+                    <p className="text-sm font-bold text-primary-dark">60 meses</p>
                   </div>
                   <div>
-                    <p className="text-xs text-secondary-text">Cuota mensual</p>
-                    <p className="text-base font-bold text-primary-dark">Q 1,125</p>
+                    <p className="text-[10px] text-secondary-text">Cuota</p>
+                    <p className="text-sm font-bold text-primary-dark">Q 1,125</p>
                   </div>
                 </div>
               </div>
@@ -346,35 +348,40 @@ export default function Home() {
             <div className="hidden md:block absolute top-24 left-1/2 w-0.5 h-[calc(100%-120px)] bg-primary-green bg-opacity-30 -translate-x-1/2"></div>
             
             <div className="space-y-12 md:space-y-24 relative">
+              {/* Mensaje de advertencia para desarrollo - eliminar en producción */}
+              <div className="hidden">Las ilustraciones del proceso han sido eliminadas en la versión móvil</div>
               {/* Step 1 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
-                <div className="order-2 md:order-1">
+                <div className="order-1 md:order-1">
                   <div className="flex items-center mb-3 sm:mb-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl z-10">
                       1
                     </div>
                     <div className="h-0.5 w-8 sm:w-12 bg-primary-green ml-3 sm:ml-4 hidden md:block"></div>
                   </div>
-                  <h3 className="title-medium text-lg sm:text-xl mb-2 sm:mb-3">Completa el formulario</h3>
-                  <p className="text-sm sm:text-base text-secondary-text mb-3 sm:mb-4">
+                  <h3 className="title-medium text-base sm:text-xl mb-2 sm:mb-3">Completa el formulario</h3>
+                  <p className="text-xs sm:text-base text-secondary-text mb-3 sm:mb-4 hidden sm:block">
                     Nuestro formulario inteligente te guiará paso a paso. Solo pedimos datos relevantes para conseguirte las mejores ofertas.
+                  </p>
+                  <p className="text-xs text-secondary-text mb-2 sm:hidden">
+                    Formulario paso a paso con datos relevantes para mejores ofertas.
                   </p>
                   <ul className="space-y-1 sm:space-y-2">
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-0.5"><FiCheckCircle size={16} /></span>
-                      <span className="text-sm sm:text-base">Proceso guiado de 9 pasos</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">9 pasos guiados</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-0.5"><FiCheckCircle size={16} /></span>
-                      <span className="text-sm sm:text-base">Guardado automático de tu progreso</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Guardado automático</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-0.5"><FiCheckCircle size={16} /></span>
-                      <span className="text-sm sm:text-base">Tiempo estimado: 5-10 minutos</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">5-10 minutos</span>
                     </li>
                   </ul>
                 </div>
-                <div className="order-1 md:order-2 bg-white p-2 rounded-lg shadow-lg mx-auto w-full max-w-sm md:max-w-none">
+                <div className="order-1 md:order-2 bg-white p-2 rounded-lg shadow-lg mx-auto w-full max-w-sm md:max-w-none hidden md:block">
                   <div className="bg-secondary-grey bg-opacity-50 rounded-lg p-4 sm:p-6 relative">
                     <div className="absolute top-2 right-2 flex space-x-1">
                       <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-400 rounded-full"></div>
@@ -412,33 +419,36 @@ export default function Home() {
               
               {/* Step 2 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="md:order-2">
+                <div className="order-1 md:order-2">
                   <div className="flex items-center mb-4 md:justify-end">
                     <div className="hidden md:block h-0.5 w-12 bg-primary-green mr-4"></div>
                     <div className="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
                       2
                     </div>
                   </div>
-                  <h3 className="title-medium mb-3">Recibe ofertas personalizadas</h3>
-                  <p className="text-secondary-text mb-4">
+                  <h3 className="title-medium text-base sm:text-xl mb-2 sm:mb-3">Recibe ofertas personalizadas</h3>
+                  <p className="text-xs sm:text-base text-secondary-text mb-2 sm:mb-4 hidden sm:block">
                     Nuestro algoritmo analiza tu perfil y lo presenta a múltiples bancos. Recibirás ofertas personalizadas con tasas preferenciales en menos de 48 horas.
                   </p>
-                  <ul className="space-y-2">
+                  <p className="text-xs text-secondary-text mb-2 sm:hidden">
+                    Recibe ofertas personalizadas de múltiples bancos en menos de 48h.
+                  </p>
+                  <ul className="space-y-1 sm:space-y-2">
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-1"><FiCheckCircle /></span>
-                      <span>Comparación de hasta 5 ofertas diferentes</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Hasta 5 ofertas</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-1"><FiCheckCircle /></span>
-                      <span>Tasas de interés preferenciales</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Tasas preferenciales</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-1"><FiCheckCircle /></span>
-                      <span>Notificación por correo y SMS</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Notificaciones</span>
                     </li>
                   </ul>
                 </div>
-                <div className="md:order-1">
+                <div className="md:order-1 hidden md:block">
                   <div className="bg-white p-4 rounded-lg shadow-lg">
                     <div className="flex justify-between items-center mb-4">
                       <h4 className="font-bold text-primary-dark">Tus Ofertas (3)</h4>
@@ -485,29 +495,32 @@ export default function Home() {
               
               {/* Step 3 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="order-2 md:order-1">
+                <div className="order-1 md:order-1">
                   <div className="flex items-center mb-4">
                     <div className="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
                       3
                     </div>
                     <div className="h-0.5 w-12 bg-primary-green ml-4 hidden md:block"></div>
                   </div>
-                  <h3 className="title-medium mb-3">Elige la mejor opción y recibe tu dinero</h3>
-                  <p className="text-secondary-text mb-4">
+                  <h3 className="title-medium text-base sm:text-xl mb-2 sm:mb-3">Elige la mejor opción y recibe tu dinero</h3>
+                  <p className="text-xs sm:text-base text-secondary-text mb-2 sm:mb-4 hidden sm:block">
                     Compara todas las ofertas y selecciona la que mejor se adapte a tus necesidades. Una vez aceptada, el banco se pondrá en contacto contigo para finalizar el proceso.
                   </p>
-                  <ul className="space-y-2">
+                  <p className="text-xs text-secondary-text mb-2 sm:hidden">
+                    Compara ofertas, selecciona la mejor y recibe el dinero rápidamente.
+                  </p>
+                  <ul className="space-y-1 sm:space-y-2">
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-1"><FiCheckCircle /></span>
-                      <span>Aceptación con un solo clic</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Aceptación con un clic</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-1"><FiCheckCircle /></span>
-                      <span>Desembolso rápido a tu cuenta</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Desembolso rápido</span>
                     </li>
                     <li className="flex items-start">
-                      <span className="text-primary-green mr-2 mt-1"><FiCheckCircle /></span>
-                      <span>Soporte personalizado en todo momento</span>
+                      <span className="text-primary-green mr-1 sm:mr-2 mt-0.5"><FiCheckCircle size={12} /></span>
+                      <span className="text-xs sm:text-base">Soporte personalizado</span>
                     </li>
                   </ul>
                   <div className="mt-6">
@@ -520,7 +533,7 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-                <div className="order-1 md:order-2">
+                <div className="order-1 md:order-2 hidden md:block">
                   <div className="bg-white p-4 rounded-lg shadow-lg">
                     <div className="bg-primary-dark text-white p-4 rounded-lg">
                       <div className="flex justify-between items-center">
@@ -583,8 +596,8 @@ export default function Home() {
                   </div>
                   <h3 className="title-small text-base sm:text-lg font-semibold">¿Es gratis usar Fingro?</h3>
                 </div>
-                <p className="text-sm sm:text-base text-secondary-text">
-                  <span className="font-bold text-primary-dark">Sí, es 100% gratuito</span>. Fingro no cobra comisiones a los usuarios. Nuestros ingresos provienen de comisiones pagadas por instituciones financieras cuando eliges una oferta.
+                <p className="text-xs sm:text-base text-secondary-text">
+                  <span className="font-bold text-primary-dark">Sí, es 100% gratuito</span>. Fingro no cobra comisiones a los usuarios. Nuestros ingresos provienen de las instituciones financieras.
                 </p>
               </div>
             </div>
@@ -597,8 +610,8 @@ export default function Home() {
                   </div>
                   <h3 className="title-small text-base sm:text-lg font-semibold">¿Cuánto tiempo toma recibir ofertas?</h3>
                 </div>
-                <p className="text-sm sm:text-base text-secondary-text">
-                  Una vez completado el formulario, recibirás ofertas personalizadas en <span className="font-bold text-primary-dark">24 a 48 horas hábiles</span>. Nuestro sistema trabaja rápidamente para conectarte con las mejores opciones.
+                <p className="text-xs sm:text-base text-secondary-text">
+                  Recibirás ofertas personalizadas en <span className="font-bold text-primary-dark">24 a 48 horas</span> después de completar el formulario.
                 </p>
               </div>
             </div>
@@ -715,11 +728,14 @@ export default function Home() {
           
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
             <div className="text-white">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
-                ¿Listo para encontrar el crédito que necesitas?
+              <h2 className="text-xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-6 leading-tight">
+                ¿Listo para tu crédito ideal?
               </h2>
-              <p className="text-base sm:text-lg md:text-xl opacity-90 mb-6 sm:mb-8">
+              <p className="text-sm sm:text-lg md:text-xl opacity-90 mb-4 sm:mb-8 hidden sm:block">
                 Únete a los miles de guatemaltecos que ya encontraron su crédito ideal con Fingro. El proceso es simple, rápido y totalmente gratuito.
+              </p>
+              <p className="text-xs opacity-90 mb-4 sm:hidden">
+                Proceso simple, rápido y totalmente gratuito.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -757,14 +773,14 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-2 sm:space-y-4">
                 <div>
-                  <label className="block text-xs sm:text-sm text-secondary-text mb-1">¿Cuánto necesitas?</label>
+                  <label className="block text-[10px] sm:text-sm text-secondary-text mb-1">¿Cuánto necesitas?</label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-sm sm:text-base">Q</span>
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 font-bold text-xs sm:text-base">Q</span>
                     <input 
                       type="text" 
-                      className="form-input pl-8 text-sm sm:text-base py-2 sm:py-2.5 w-full" 
+                      className="form-input pl-7 text-sm sm:text-base py-1.5 sm:py-2.5 w-full" 
                       placeholder="50,000" 
                       value={montoFormateado}
                       onChange={handleMontoChange}
@@ -774,12 +790,12 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label className="block text-xs sm:text-sm text-secondary-text mb-1">Plazo (meses)</label>
+                  <label className="block text-[10px] sm:text-sm text-secondary-text mb-1">Plazo (meses)</label>
                   <div className="grid grid-cols-3 gap-1 sm:gap-2">
                     {[24, 36, 48, 60, 72, 84].map((month, i) => (
                       <div 
                         key={i} 
-                        className={`text-center py-1.5 sm:py-2 border rounded-md cursor-pointer text-xs sm:text-sm ${month === plazoMeses ? 'bg-primary-green text-white border-primary-green' : 'border-secondary-grey hover:border-primary-green'}`}
+                        className={`text-center py-1 sm:py-2 border rounded-md cursor-pointer text-[10px] sm:text-sm ${month === plazoMeses ? 'bg-primary-green text-white border-primary-green' : 'border-secondary-grey hover:border-primary-green'}`}
                         onClick={() => handlePlazoSelect(month)}
                       >
                         {month}
@@ -788,10 +804,10 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="pt-3 sm:pt-4 border-t">
+                <div className="pt-2 sm:pt-4 border-t">
                   <div className="flex justify-between mb-1 sm:mb-2">
-                    <p className="text-secondary-text text-xs sm:text-sm">Cuota estimada:</p>
-                    <p className="font-bold text-primary-dark text-sm sm:text-base">Q {cuotaMensual.toLocaleString()} /mes</p>
+                    <p className="text-secondary-text text-[10px] sm:text-sm">Cuota estimada:</p>
+                    <p className="font-bold text-primary-dark text-xs sm:text-base">Q {cuotaMensual.toLocaleString()}/mes</p>
                   </div>
                   <div>
                     <label className="block text-xs sm:text-sm text-secondary-text mb-1">Tasa de interés (%)</label>
