@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Colores primarios */
+  --color-primary-dark: #08233D;
+  --color-primary-green: #34B796;
+  --color-primary-yellow: #F8CD46;
+  --color-primary-white: #FFFFFF;
+
+  /* Colores secundarios y complementarios */
+  --color-secondary-grey: #F3F4F6;
+  --color-secondary-text: #2A2D34;
+
+  /* Tipografía */
+  --font-family-primary: 'Inter', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Tamaños tipográficos estándar */
+  --font-size-small: 0.875rem; /*14px*/
+  --font-size-base: 1rem; /*16px*/
+  --font-size-medium: 1.125rem; /*18px*/
+  --font-size-large: 1.5rem; /*24px*/
+  --font-size-xlarge: 2rem; /*32px*/
+}
+
+body {
+  font-family: var(--font-family-primary);
+  color: var(--color-secondary-text);
+  background-color: var(--color-primary-white);
+}
+
+@layer components {
+  /* Botones */
+  .btn-primary {
+    @apply py-2 px-4 bg-primary-green text-white font-bold rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-opacity-75 transition-colors duration-300;
+  }
+  
+  .btn-secondary {
+    @apply py-2 px-4 bg-white text-secondary-text font-bold rounded-lg shadow-md border border-secondary-grey hover:bg-secondary-grey focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-opacity-75 transition-colors duration-300;
+  }
+
+  .btn-accent {
+    @apply py-2 px-4 bg-primary-yellow text-primary-dark font-bold rounded-lg shadow-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-primary-yellow focus:ring-opacity-75 transition-colors duration-300;
+  }
+  
+  /* Formularios */
+  .form-input {
+    @apply w-full px-3 py-2 border border-secondary-grey rounded-md shadow-sm focus:outline-none focus:ring-primary-green focus:border-primary-green;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-secondary-text mb-1;
+  }
+  
+  .form-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  /* Tarjetas */
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md border border-secondary-grey;
+  }
+
+  /* Títulos */
+  .title-large {
+    @apply text-2xl font-bold text-primary-dark;
+  }
+
+  .title-medium {
+    @apply text-xl font-bold text-primary-dark;
+  }
+
+  .title-small {
+    @apply text-lg font-bold text-primary-dark;
+  }
+
+  /* Badges */
+  .badge-success {
+    @apply px-2 py-1 text-xs font-bold rounded-full bg-primary-green text-white;
+  }
+
+  .badge-warning {
+    @apply px-2 py-1 text-xs font-bold rounded-full bg-primary-yellow text-primary-dark;
+  }
+
+  .badge-info {
+    @apply px-2 py-1 text-xs font-bold rounded-full bg-secondary-grey text-secondary-text;
+  }
+}
