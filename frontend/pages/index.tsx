@@ -648,7 +648,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-secondary-text text-sm sm:text-base mb-3 sm:mb-4">
-                  "Conseguí un crédito con una tasa mucho mejor de lo que esperaba. El proceso fue rápido y sin complicaciones."
+                  &ldquo;Conseguí un crédito con una tasa mucho mejor de lo que esperaba. El proceso fue rápido y sin complicaciones.&rdquo;
                 </p>
                 <div className="flex items-center">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-dark text-white flex items-center justify-center mr-2 sm:mr-3 font-bold text-xs sm:text-base">
@@ -668,7 +668,7 @@ export default function Home() {
                   ))}
                 </div>
                 <p className="text-secondary-text text-sm sm:text-base mb-3 sm:mb-4">
-                  "Pude comparar varias ofertas y elegir la que mejor se adaptaba a mis necesidades. El ahorro fue significativo."
+                  &ldquo;Pude comparar varias ofertas y elegir la que mejor se adaptaba a mis necesidades. El ahorro fue significativo.&rdquo;
                 </p>
                 <div className="flex items-center">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-dark text-white flex items-center justify-center mr-2 sm:mr-3 font-bold text-xs sm:text-base">
@@ -689,7 +689,7 @@ export default function Home() {
                   <span className="inline-block text-secondary-grey"><FiStar size={16} /></span>
                 </div>
                 <p className="text-secondary-text text-sm sm:text-base mb-3 sm:mb-4">
-                  "El proceso fue muy sencillo y la atención personalizada me ayudó a resolver todas mis dudas. En menos de 48h ya tenía ofertas."
+                  &ldquo;El proceso fue muy sencillo y la atención personalizada me ayudó a resolver todas mis dudas. En menos de 48h ya tenía ofertas.&rdquo;
                 </p>
                 <div className="flex items-center">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary-dark text-white flex items-center justify-center mr-2 sm:mr-3 font-bold text-xs sm:text-base">
